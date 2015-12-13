@@ -1,0 +1,44 @@
+name:                intervals
+version:             0.1
+synopsis:            concatenating intervals
+description:         Please see README.md
+homepage:            
+license:             BSD3
+license-file:        LICENSE
+author:              wkoiking
+maintainer:          wanagida@gmail.com
+category:            None
+build-type:          Simple
+cabal-version:       >=1.10
+
+executable intervals-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base >= 2.0, intervals, parsec, my-parser
+  default-language:    Haskell2010
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Interval
+  build-depends:       base >= 2.0, my-parser, parsec
+  default-language:    Haskell2010
+
+  -- Modules not exported by this package.
+  -- other-modules:       
+  
+  -- Extra tools (e.g. alex, hsc2hs, ...) needed to build the source.
+  -- build-tools:         
+
+test-suite my-project-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , intervals
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+-- source-repository head
+--   type:     git
+--   location: https://github.com/githubuser/my-project
